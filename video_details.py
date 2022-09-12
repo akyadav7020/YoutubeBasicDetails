@@ -13,7 +13,7 @@ def title_of_channel(home_link):
         json_data = json.loads(data)
         ch_name = json_data['header']['c4TabbedHeaderRenderer']['title']
         ch_url = json_data['header']['c4TabbedHeaderRenderer']['navigationEndpoint']['commandMetadata']['webCommandMetadata']['url']
-        ch_url=ch_url.split("/")[2]
+        ch_url=ch_url.split("/")[-1]
         return ch_name,ch_url
     except Exception as e:
         return "Something Wrong"
@@ -43,3 +43,13 @@ def Total_Likes(id):
         return int(likes)
     except Exception as e:
         return "Retry"
+
+def remove_special_char(s):
+    try:
+        new =s
+        for i in s:
+            if not (i.isalnum()):
+                new=new.replace(i,"_")
+        return new
+    except Exception as e:
+        return "Error"

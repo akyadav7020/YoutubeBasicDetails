@@ -29,7 +29,7 @@ def main():
             data1 = []
             count = len(video_id) if len(video_id) < count else count
             ch_name,ch_url = vd.title_of_channel(ch_link)
-            table_name = ch_name.replace(" ","_")+"_{}".format(ch_url)
+            table_name = vd.remove_special_char(ch_name)+"_{}".format(vd.remove_special_char(ch_url))
             database.create_unique_table(table_name)
             for i in range(count):
                 video_link,title, thumbnail_url = extract.youtubescraper(video_id[i])
@@ -45,7 +45,7 @@ def main():
         return render_template('results.html',details=details[0:len(details)],n =len(data1),count=len(data2),name=ch_name)
 
     except Exception as e:
-        return "Invalid Link Try Again"
+        print(e)
 
 
 if __name__ == "__main__":
