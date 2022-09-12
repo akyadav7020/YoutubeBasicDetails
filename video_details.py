@@ -53,3 +53,4 @@ def remove_special_char(s):
         return new
     except Exception as e:
         return "Error"
+
