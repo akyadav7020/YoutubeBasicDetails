@@ -45,7 +45,7 @@ def main():
         return render_template('results.html',details=details[0:len(details)],n =len(data1),count=len(data2),name=ch_name)
 
     except Exception as e:
-        return "Try again Invalid Link or Live Video(s) on {} in latest {} Videos".format(ch_name,count)
+        return "Try again Invalid Link or Live Video(s) on Channel in latest {} Videos".format(count)
 
 
 if __name__ == "__main__":
