@@ -41,27 +41,8 @@
    </table>
 </div>
 
-<div class="table-users">
-    <div class="header">DataBase have {{count}} Channels Detail</div>
-
-   <table cellspacing="0">
-      <tr>
-         <th>S.No</th>
-          <th>Table Name</th>
-          <th>Number Of Records</th>
-
-      </tr>
-         {% for i in range(count) %}
-      <tr>
-          <td>{{i+1}}</td>
-          <td>{{details[1][i]['Ch_table']}}</td>
-          <td>{{details[1][i]['records']}}</td>
-      </tr>
-       {% endfor %}
-   </table>
-</div>
 <br>
-<div align="center"><p><b>Try in local if want more than 10 results in 1 click, same database will be updated.</b></p>
+<div align="center"><p><b>Try LocalScrapper for more than 10 results in 1 click,Same DATABASE will be Updated. And Database Details also shown on this page in LocalScrapper.</b></p>
     <button> <a href = "https://github.com/akyadav7020/YoutubeScrapper" style="text-decoration:none"> LocalScrapper </a></button> </div>
 <br>
 </body>
