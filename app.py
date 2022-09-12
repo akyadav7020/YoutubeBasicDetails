@@ -45,7 +45,7 @@ def main():
         return render_template('results.html',details=details[0:len(details)],n =len(data1),count=len(data2),name=ch_name)
 
     except Exception as e:
-        return "Try Again"
+        return "Invalid Link Try Again"
 
 
 if __name__ == "__main__":
