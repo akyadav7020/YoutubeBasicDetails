@@ -25,7 +25,7 @@ def main():
             details = []
             video_id = extract.get_id_of_videos(ch_link)
             if (len(video_id)) == 0:
-                return "Invalid Link Try again"
+                return "No videos on channel"
             data1 = []
             count = len(video_id) if len(video_id) < count else count
             ch_name,ch_url = vd.title_of_channel(ch_link)
@@ -45,7 +45,7 @@ def main():
         return render_template('results.html',details=details[0:len(details)],n =len(data1),count=len(data2),name=ch_name)
 
     except Exception as e:
-        print(e)
+        return "Try Again"
 
 
 if __name__ == "__main__":

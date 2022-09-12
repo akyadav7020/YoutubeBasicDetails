@@ -1,34 +1,8 @@
 import time
 from bs4 import BeautifulSoup as bs
-from scroll_page import Scroll_Page
 import re
 import requests
 import json
-
-
-def get_id_of_videos(home_link,count):
-    """ returns list of Videoe_ids equal to less than given count value for a particulal channel link"""
-    l=0
-    i=1
-    try:
-        while l < count:
-            html = Scroll_Page(home_link, i)
-            v = re.findall(r"watch\?v=(\S{11})", html)
-            res =[]
-            [res.append(x) for x in v if x not in res]
-            v= res
-            scroll_length = len(v)
-            if scroll_length == l:
-                break;
-            else:
-                l = scroll_length
-            i = i + 1
-        if l > count:
-            return v[0:count]
-        else:
-            return v
-    except Exception as e:
-        return "Something Wrong"
 
 def title_of_channel(home_link):
     """ returns channene name and unique channel_url_id for a particulal channel link"""

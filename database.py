@@ -52,45 +52,6 @@ def Update_Data(primary_column,table,data):
     except Exception as e:
         return "Not able to connect to the SERVER"
 
-def drop_table(table_name):
-    try:
-        cursor,mydb = connection()
-        cursor.execute("select table_name from information_schema.tables")
-        all_tables_name = (cursor.fetchall())
-        all_tables_list = set()
-        for i in range(len(all_tables_name)):
-            all_tables_list.add(all_tables_name[i][0])
-
-        if table_name in all_tables_list:
-            cursor.execute(
-                "drop table {}".format(table_name))
-            mydb.commit()
-            return "Deleted Successfully"
-        else:
-            return "Table not present:- {}".format(table_name)
-    except Exception as e:
-        return "Not able to connect to the SERVER"
-
-def drop_all():
-    try:
-        cursor,mydb = connection()
-        cursor.execute("select table_name from information_schema.tables")
-        all_tables_name = (cursor.fetchall())
-        all_tables_list = []
-        for i in range(len(all_tables_name)):
-            all_tables_list.append(all_tables_name[i][0])
-        if len(all_tables_list) >1:
-            for table_name in all_tables_list[:-1]:
-                print(table_name)
-                cursor.execute("drop table {}".format(table_name))
-                mydb.commit()
-            print ("Deleted Successfully")
-        else:
-            print("No table to Delete")
-
-    except Exception as e:
-        return "Not able to connect to the SERVER"
-
 def Extract_data():
     try:
         cursor,mydb = connection()
